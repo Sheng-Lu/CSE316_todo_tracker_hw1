@@ -120,12 +120,25 @@ export default class ToDoModel {
      */
     loadList(listId) {
         let listIndex = -1;
+
         for (let i = 0; (i < this.toDoLists.length) && (listIndex < 0); i++) {
+
+            
             if (this.toDoLists[i].id === listId)
                 listIndex = i;
         }
+
+        this.toDoLists.unshift(this.toDoLists[listIndex]);
+        this.toDoLists.splice(listIndex+1, 1);
+        console.log(this.toDoLists);
+        this.view.refreshLists(this.toDoLists);
+        
+
+        
         if (listIndex >= 0) {
-            let listToLoad = this.toDoLists[listIndex];
+            
+            //let listToLoad = this.toDoLists[listIndex];
+            let listToLoad = this.toDoLists[0];
             this.currentList = listToLoad;
             this.view.viewList(this.currentList);
         }
