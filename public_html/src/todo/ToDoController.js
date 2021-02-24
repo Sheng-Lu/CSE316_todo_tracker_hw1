@@ -48,6 +48,8 @@ export default class ToDoController {
             document.getElementById("popup").classList.remove("active");
             document.getElementById("overlay").classList.remove("active");
         }
+
+
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD
@@ -55,4 +57,6 @@ export default class ToDoController {
         // UNLOAD THE CURRENT LIST AND INSTEAD LOAD THE CURRENT LIST
         this.model.loadList(listId);
     }
+
+    
 }

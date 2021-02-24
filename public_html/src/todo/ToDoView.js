@@ -62,20 +62,80 @@ export default class ToDoView {
         for (let i = 0; i < list.items.length; i++) {
             // NOW BUILD ALL THE LIST ITEMS
             let listItem = list.items[i];
-            let listItemElement = "<div id='todo-list-item-" + listItem.id + "' class='list-item-card'>"
-                                + "<div class='task-col'>" + listItem.description + "</div>"
-                                + "<div class='due-date-col'>" + listItem.dueDate + "</div>"
-                                + "<div class='status-col'>" + listItem.status + "</div>"
-                                + "<div class='list-controls-col'>"
-                                + " <div class='list-item-control material-icons'>keyboard_arrow_up</div>"
-                                + " <div class='list-item-control material-icons'>keyboard_arrow_down</div>"
-                                + " <div class='list-item-control material-icons'>close</div>"
-                                + " <div class='list-item-control'></div>"
-                                + " <div class='list-item-control'></div>"
-                                + "</div>";
-            itemsListDiv.innerHTML += listItemElement;
+            // let listItemElement = "<div id='todo-list-item-" + listItem.id + "' class='list-item-card'>"
+            //                     + "<div class='task-col' >" + listItem.description + "</div>"
+            //                     + "<div class='due-date-col'>" + listItem.dueDate + "</div>"
+            //                     + "<div class='status-col'>" + listItem.status + "</div>"
+            //                     + "<div class='list-controls-col'>"
+            //                     + " <div class='list-item-control material-icons'>keyboard_arrow_up</div>"
+            //                     + " <div class='list-item-control material-icons'>keyboard_arrow_down</div>"
+            //                     + " <div class='list-item-control material-icons'>close</div>"
+            //                     + " <div class='list-item-control'></div>"
+            //                     + " <div class='list-item-control'></div>"
+            //                     + "</div>";
+            // itemsListDiv.innerHTML += listItemElement;
+            
+            
+
+            let todoListItem = document.createElement('div');
+            todoListItem.id = 'todo-list-item-' + listItem.id;
+            // todoListItem.setAttribute("id", "todo-list-item-"+listItem.id);
+            todoListItem.className = 'list-item-card';
+            itemsListDiv.appendChild(todoListItem);
+
+            let listDesc = document.createElement('div');
+            listDesc.className = 'task-col';
+            listDesc.innerHTML = listItem.description;
+            todoListItem.appendChild(listDesc);
+
+            let listDate = document.createElement('div');
+            listDate.className = 'due-date-col';
+            listDate.innerHTML= listItem.dueDate;
+            todoListItem.appendChild(listDate);
+
+            let listStatus = document.createElement('div');
+            listStatus.className = 'status-col';
+            listStatus.innerHTML= listItem.status;
+            todoListItem.appendChild(listStatus);
+
+            let listControl = document.createElement('div');
+            listControl.className = 'list-controls-col'
+            
+            let arrowUp = document.createElement('div');
+            arrowUp.className = 'list-item-control material-icons';
+            arrowUp.innerHTML= 'keyboard_arrow_up';
+            listControl.appendChild(arrowUp);
+
+            let arrowDown = document.createElement('div');
+            arrowDown.className = 'list-item-control material-icons';
+            arrowDown.innerHTML='keyboard_arrow_down';
+            listControl.appendChild(arrowDown);
+
+            let close = document.createElement('div');
+            close.className = 'list-item-control material-icons';
+            close.innerHTML='close';
+            listControl.appendChild(close);
+
+            let listItemControl = document.createElement('div');
+            listItemControl.className = 'list-item-control';
+            listControl.appendChild(listItemControl);
+
+            let listItemControl1 = document.createElement('div');
+            listItemControl.className = 'list-item-control';
+            listControl.appendChild(listItemControl1);
+
+            todoListItem.appendChild(listControl);
+
+            // itemsListDiv.appendChild()
+
+            // let temp = " <div class='list-item-control'></div>"
+            //                     + " <div class='list-item-control'></div>"
+            //                     + "</div>";
+            // itemsListDiv.innerHTML += temp;
+
         }
     }
+
 
     // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES
     setController(initController) {
