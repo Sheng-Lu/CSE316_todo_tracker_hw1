@@ -13,12 +13,13 @@
     --swatch-text:          #e9edf0; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */ 
     --swatch-text-accent:   #ffc819; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */  
 
-    --font-primary:         'Lexend Exa', sans-serif;
+    --font-primary:         consolas;
 }
 
 #grid-container {
     background-color: var(--swatch-foundation);
     font-family: var(--font-primary);
+    font-weight: 700;
 }
 
 .grid-item {
@@ -42,7 +43,7 @@
 #title-div {
     color: rgb(255,200,25);
     font-weight: bold;
-    font-size: 14pt;
+    font-size: 19pt;
 }
 
 #left-sidebar-header {
@@ -68,4 +69,70 @@
 
 .todo_button:hover {
     background-color: var(--swatch-contrast);
+}
+
+.todo_button_hi {
+    background-color: var(--swatch-accent);
+}
+
+#todo-list-items-div:hover{
+    background-color: var(--swatch-contrast);
+}
+
+.popup_button {
+    cursor:pointer;
+    background-color: var(--swatch-primary);
+}
+
+.popup_button:hover {
+    background-color: var(--swatch-contrast);
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    width: 350px;
+    max-width: 50%;
+    background-color: var(--swatch-primary);
+    z-index: 10;
+}
+
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup_head {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.popup_body {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
 }

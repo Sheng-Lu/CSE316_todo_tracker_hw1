@@ -24,11 +24,30 @@ export default class ToDoController {
             appModel.redo();
         }
         document.getElementById("delete-list-button").onmousedown = function() {
-            appModel.removeCurrentList();
+            document.getElementById("popup").classList.add("active");
+            document.getElementById("overlay").classList.add("active");
+            // appModel.removeCurrentList();
         }
         document.getElementById("add-item-button").onmousedown = function() {
             appModel.addNewItemTransaction();
         }  
+        document.getElementById("cancel_button").onmousedown = function() {
+            document.getElementById("popup").classList.remove("active");
+            document.getElementById("overlay").classList.remove("active");
+        }
+        document.getElementById("x_button").onmousedown = function() {
+            document.getElementById("popup").classList.remove("active");
+            document.getElementById("overlay").classList.remove("active");
+        }
+        document.getElementById("confirm_button").onmousedown = function() {
+            appModel.removeCurrentList();
+            document.getElementById("popup").classList.remove("active");
+            document.getElementById("overlay").classList.remove("active");
+        }
+        document.getElementById("overlay").onmousedown = function() {
+            document.getElementById("popup").classList.remove("active");
+            document.getElementById("overlay").classList.remove("active");
+        }
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD

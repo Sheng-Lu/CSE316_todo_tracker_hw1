@@ -46,12 +46,12 @@ export default class ToDoModel {
      */
     addNewItemToCurrentList() {
         let newItem = new ToDoListItem(this.nextListItemId++);
-        this.addItemToList(this.currentList, newItem);
+        this.addNewItemToList(this.currentList, newItem);
         return newItem;
     }
 
     /**
-     * addItemToList
+     * addNewItemToList
      * 
      * Function for adding a new item to the list argument using the provided data arguments.
      */
@@ -112,7 +112,7 @@ export default class ToDoModel {
         newItem.setDueDate(due_date);
         newItem.setAssignedTo(assigned_to);
         newItem.setCompleted(completed);
-        this.addItemToList(list, newItem);
+        this.addNewItemToList(list, newItem);
     }
 
     /**
@@ -127,21 +127,20 @@ export default class ToDoModel {
             if (this.toDoLists[i].id === listId)
                 listIndex = i;
         }
-
-        this.toDoLists.unshift(this.toDoLists[listIndex]);
-        this.toDoLists.splice(listIndex+1, 1);
-        console.log(this.toDoLists);
-        this.view.refreshLists(this.toDoLists);
-        
-
         
         if (listIndex >= 0) {
             
-            //let listToLoad = this.toDoLists[listIndex];
-            let listToLoad = this.toDoLists[0];
+            let listToLoad = this.toDoLists[listIndex];
             this.currentList = listToLoad;
             this.view.viewList(this.currentList);
         }
+
+        this.toDoLists.unshift(this.toDoLists[listIndex]);
+        this.toDoLists.splice(listIndex+1, 1);
+        // console.log(this.toDoLists);
+        this.view.refreshLists(this.toDoLists);
+        // this.toDoLists[0].setbv
+
     }
 
     /**
