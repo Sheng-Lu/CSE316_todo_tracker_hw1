@@ -83,15 +83,13 @@ export default class ToDoView {
             todoListItem.className = 'list-item-card';
             itemsListDiv.appendChild(todoListItem);
 
-            let listDesc = document.createElement('div');
+            let listDesc = document.createElement('div');   // task description
             listDesc.className = 'task-col';
             listDesc.innerHTML = listItem.description;
-            // listDesc.value = listItem.description;
-            // listDesc.disabled = true;
             todoListItem.appendChild(listDesc);
 
             let descInput = document.createElement('input');
-            descInput.className = 'task-col-input';
+            descInput.className = 'right_input';
             descInput.type = 'text';
             descInput.value = listItem.description;
             
@@ -105,11 +103,27 @@ export default class ToDoView {
                 descInput.replaceWith(listDesc);
             }
 
-            let listDate = document.createElement('input');
+            let listDate = document.createElement('div');     // task date
             listDate.className = 'due-date-col';
-            // listDate.innerHTML= listItem.dueDate;
-            listDate.value = listItem.dueDate;
+            listDate.innerHTML= listItem.dueDate;
+            // listDate.value = listItem.dueDate;
+            // listDate.type = 'date';
             todoListItem.appendChild(listDate);
+
+            let dateInput = document.createElement('input');
+            dateInput.className = 'right_input';
+            dateInput.type = 'date';
+            dateInput.value = listItem.dueDate;
+
+            listDate.onclick = function(event){
+                listDate.replaceWith(dateInput);
+                dateInput.focus();
+            }
+            dateInput.onblur = function(event){
+                listItem.setDueDate(dateInput.value);
+                listDate.innerHTML= listItem.dueDate;
+                dateInput.replaceWith(listDate);
+            }
 
             let listStatus = document.createElement('div');
             listStatus.className = 'status-col';

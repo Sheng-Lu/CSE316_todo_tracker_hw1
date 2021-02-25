@@ -57,7 +57,7 @@
     font-weight: 700;
 }
 
-.task-col-input {
+.right_input {
     width:24.7%;
     background-color: transparent;
     color: #e9edf0;
@@ -67,6 +67,10 @@
 
 .due-date-col {
     width:25%;
+    background-color: transparent;
+    color: #e9edf0;
+    font-family: consolas;
+    font-weight: 700;
 }
 
 .status-col {
