@@ -125,10 +125,37 @@ export default class ToDoView {
                 dateInput.replaceWith(listDate);
             }
 
-            let listStatus = document.createElement('div');
+            let listStatus = document.createElement('div');     //list status
             listStatus.className = 'status-col';
             listStatus.innerHTML= listItem.status;
             todoListItem.appendChild(listStatus);
+
+            let statusInput = document.createElement('select');
+            statusInput.className = 'right_input';
+
+            let completeS = document.createElement("option");
+            completeS.value = "complete";
+            completeS.text = "complete";
+            statusInput.appendChild(completeS);
+
+            let incompleteS = document.createElement("option");
+            incompleteS.value = "incomplete";
+            incompleteS.text = "incomplete";
+            statusInput.appendChild(incompleteS);
+
+            statusInput.value = listItem.status;
+
+            // todoListItem.appendChild(statusInput);
+
+            listStatus.onclick = function(event){
+                listStatus.replaceWith(statusInput);
+                statusInput.focus();
+            }
+            statusInput.onblur = function(event){
+                listItem.setStatus(statusInput.value);
+                listStatus.innerHTML= listItem.status;
+                statusInput.replaceWith(listStatus);
+            }
 
             let listControl = document.createElement('div');
             listControl.className = 'list-controls-col'
