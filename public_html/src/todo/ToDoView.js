@@ -86,11 +86,29 @@ export default class ToDoView {
             let listDesc = document.createElement('div');
             listDesc.className = 'task-col';
             listDesc.innerHTML = listItem.description;
+            // listDesc.value = listItem.description;
+            // listDesc.disabled = true;
             todoListItem.appendChild(listDesc);
 
-            let listDate = document.createElement('div');
+            let descInput = document.createElement('input');
+            descInput.className = 'task-col-input';
+            descInput.type = 'text';
+            descInput.value = listItem.description;
+            
+            listDesc.onclick = function(event){
+                listDesc.replaceWith(descInput);
+                descInput.focus();
+            }
+            descInput.onblur = function(event) {
+                listItem.setDescription(descInput.value);
+                listDesc.innerHTML = listItem.description;
+                descInput.replaceWith(listDesc);
+            }
+
+            let listDate = document.createElement('input');
             listDate.className = 'due-date-col';
-            listDate.innerHTML= listItem.dueDate;
+            // listDate.innerHTML= listItem.dueDate;
+            listDate.value = listItem.dueDate;
             todoListItem.appendChild(listDate);
 
             let listStatus = document.createElement('div');

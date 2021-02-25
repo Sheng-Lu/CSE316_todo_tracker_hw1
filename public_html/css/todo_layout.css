@@ -51,6 +51,18 @@
 
 .task-col {
     width:25%;
+    background-color: transparent;
+    color: #e9edf0;
+    font-family: consolas;
+    font-weight: 700;
+}
+
+.task-col-input {
+    width:24.7%;
+    background-color: transparent;
+    color: #e9edf0;
+    font-family: consolas;
+    font-weight: 700;
 }
 
 .due-date-col {
@@ -69,4 +81,12 @@
 
 .list-item-control {
     width: 20%;
+}
+
+.hide {
+    display: none; 
+}
+
+.visible{
+    visibility: hidden;
 }
