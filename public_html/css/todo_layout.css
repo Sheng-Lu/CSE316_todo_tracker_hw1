@@ -86,11 +86,3 @@
 .list-item-control {
     width: 20%;
 }
-
-.hide {
-    display: none; 
-}
-
-.visible{
-    visibility: hidden;
-}

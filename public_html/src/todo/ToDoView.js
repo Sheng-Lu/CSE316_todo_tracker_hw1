@@ -134,13 +134,16 @@ export default class ToDoView {
             statusInput.className = 'right_input';
 
             let completeS = document.createElement("option");
+            completeS.className = 'right_input'
             completeS.value = "complete";
             completeS.text = "complete";
+            completeS.style.backgroundColor = "#40454e";
             statusInput.appendChild(completeS);
 
             let incompleteS = document.createElement("option");
             incompleteS.value = "incomplete";
             incompleteS.text = "incomplete";
+            incompleteS.style.backgroundColor = "#40454e";
             statusInput.appendChild(incompleteS);
 
             statusInput.value = listItem.status;
