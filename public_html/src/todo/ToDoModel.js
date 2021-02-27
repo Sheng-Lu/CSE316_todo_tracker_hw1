@@ -138,10 +138,8 @@ export default class ToDoModel {
 
         this.toDoLists.unshift(this.toDoLists[listIndex]);
         this.toDoLists.splice(listIndex+1, 1);
-        // console.log(this.toDoLists);
         this.view.refreshLists(this.toDoLists);
-        // this.toDoLists[0].setbv
-
+        this.tps.clearAllTransactions();
     }
 
     /**
