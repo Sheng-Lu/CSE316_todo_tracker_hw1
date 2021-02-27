@@ -60,5 +60,9 @@ export default class ToDoController {
         this.model.addDescriptionTransaction(item, newDesc);
     }
 
+    handleDueDate(item, newDate){
+        this.model.addDateTransaction(item, newDate);
+    }
+
     
 }

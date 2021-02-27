@@ -3,22 +3,22 @@
 // IMPORT ALL THE THINGS NEEDED FROM OTHER JAVASCRIPT SOURCE FILES
 import { jsTPS_Transaction } from "../../common/jsTPS.js"
 
-export default class Description_Transation extends jsTPS_Transaction {
-    constructor(model, listItem, oldDesc, newDesc){
+export default class Date_Transaction extends jsTPS_Transaction {
+    constructor(model, listItem, oldDate, newDate){
         super();
-        this.oldDesc = oldDesc;
-        this.newDesc = newDesc;
+        this.oldDate = oldDate;
+        this.newDate = newDate;
         this.listItem = listItem;
         this.model = model;
     }
 
     doTransaction() {
-        this.listItem.setDescription(this.newDesc);
+        this.listItem.setDueDate(this.newDate);
         this.model.refreshView();
     }
 
     undoTransaction(){
-        this.listItem.setDescription(this.oldDesc);
+        this.listItem.setDueDate(this.oldDate);
         this.model.refreshView();
     }
 }

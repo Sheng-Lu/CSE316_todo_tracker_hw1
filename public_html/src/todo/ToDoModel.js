@@ -5,6 +5,7 @@ import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
 import Description_Transation from './transactions/Description_Transation.js'
+import Date_Transaction from './transactions/Date_Transaction.js'
 
 /**
  * ToDoModel
@@ -198,7 +199,8 @@ export default class ToDoModel {
         this.view.viewList(this.currentList);
     }
 
-    upArrow(){
-
+    addDateTransaction(item, newDate){
+        let transaction = new Date_Transaction(this, item, item.dueDate, newDate);
+        this.tps.addTransaction(transaction);
     }
 }

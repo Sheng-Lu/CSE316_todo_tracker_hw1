@@ -106,8 +106,6 @@ export default class ToDoView {
             let listDate = document.createElement('div');     // task date
             listDate.className = 'due-date-col';
             listDate.innerHTML= listItem.dueDate;
-            // listDate.value = listItem.dueDate;
-            // listDate.type = 'date';
             todoListItem.appendChild(listDate);
 
             let dateInput = document.createElement('input');
@@ -120,9 +118,10 @@ export default class ToDoView {
                 dateInput.focus();
             }
             dateInput.onblur = function(event){
-                listItem.setDueDate(dateInput.value);
-                listDate.innerHTML= listItem.dueDate;
-                dateInput.replaceWith(listDate);
+                controller.handleDueDate(listItem, dateInput.value);
+                // listItem.setDueDate(dateInput.value);
+                // listDate.innerHTML= listItem.dueDate;
+                // dateInput.replaceWith(listDate);
             }
 
             let listStatus = document.createElement('div');     //list status
@@ -202,12 +201,6 @@ export default class ToDoView {
 
             todoListItem.appendChild(listControl);
 
-            // itemsListDiv.appendChild()
-
-            // let temp = " <div class='list-item-control'></div>"
-            //                     + " <div class='list-item-control'></div>"
-            //                     + "</div>";
-            // itemsListDiv.innerHTML += temp;
 
         }
     }
