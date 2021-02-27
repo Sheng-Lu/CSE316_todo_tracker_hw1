@@ -78,4 +78,18 @@ export default class ToDoList {
     getItemAtIndex(index) {
         return this.items[index];
     }
+
+    moveUp(item){
+        let index = this.getIndexOfItem(item);
+        let temp = this.items[index-1];
+        this.items[index-1] = item;
+        this.items[index] = temp;
+    }
+
+    moveDown(item){
+        let index = this.getIndexOfItem(item);
+        let temp = this.items[index+1];
+        this.items[index+1] = item;
+        this.items[index] = temp;
+    }
 }

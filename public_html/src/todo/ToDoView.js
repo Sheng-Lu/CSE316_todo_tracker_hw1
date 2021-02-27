@@ -54,6 +54,8 @@ export default class ToDoView {
     // LOADS THE list ARGUMENT'S ITEMS INTO THE VIEW
     viewList(list) {
         // WE'LL BE ADDING THE LIST ITEMS TO OUR WORKSPACE
+        let controller = this.controller;
+
         let itemsListDiv = document.getElementById("todo-list-items-div");
 
         // GET RID OF ALL THE ITEMS
@@ -98,9 +100,7 @@ export default class ToDoView {
                 descInput.focus();
             }
             descInput.onblur = function(event) {
-                listItem.setDescription(descInput.value);
-                listDesc.innerHTML = listItem.description;
-                descInput.replaceWith(listDesc);
+                controller.handleDescription(listItem, descInput.value);
             }
 
             let listDate = document.createElement('div');     // task date
@@ -163,20 +163,34 @@ export default class ToDoView {
             let listControl = document.createElement('div');
             listControl.className = 'list-controls-col'
             
-            let arrowUp = document.createElement('div');
+            let arrowUp = document.createElement('div');        //up arrow
             arrowUp.className = 'list-item-control material-icons';
             arrowUp.innerHTML= 'keyboard_arrow_up';
             listControl.appendChild(arrowUp);
+
+            arrowUp.onclick = function(event){
+                list.moveUp(listItem);
+                this.viewList(list)
+            }
 
             let arrowDown = document.createElement('div');
             arrowDown.className = 'list-item-control material-icons';
             arrowDown.innerHTML='keyboard_arrow_down';
             listControl.appendChild(arrowDown);
 
-            let close = document.createElement('div');
+            arrowDown.onclick = function(event){
+                list.moveDown(listItem);
+            }
+
+            let close = document.createElement('div');          //x button
             close.className = 'list-item-control material-icons';
             close.innerHTML='close';
             listControl.appendChild(close);
+
+            close.onclick = function(event){
+                list.removeItem(listItem);
+                itemsListDiv.removeChild(todoListItem);
+            }
 
             let listItemControl = document.createElement('div');
             listItemControl.className = 'list-item-control';

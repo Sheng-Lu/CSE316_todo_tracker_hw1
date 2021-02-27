@@ -4,6 +4,7 @@ import ToDoList from './ToDoList.js'
 import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
+import Description_Transation from './transactions/Description_Transation.js'
 
 /**
  * ToDoModel
@@ -189,4 +190,17 @@ export default class ToDoModel {
             this.tps.undoTransaction();
         }
     } 
+
+    addDescriptionTransaction(item, newDesc){
+        let transaction = new Description_Transation(this, item, item.description, newDesc);
+        this.tps.addTransaction(transaction);
+    }
+
+    refreshView(){
+        this.view.viewList(this.currentList);
+    }
+
+    upArrow(){
+
+    }
 }

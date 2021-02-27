@@ -48,15 +48,16 @@ export default class ToDoController {
             document.getElementById("popup").classList.remove("active");
             document.getElementById("overlay").classList.remove("active");
         }
-
-        
-        
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD
     handleLoadList(listId) {
         // UNLOAD THE CURRENT LIST AND INSTEAD LOAD THE CURRENT LIST
         this.model.loadList(listId);
+    }
+
+    handleDescription(item, newDesc){
+        this.model.addDescriptionTransaction(item, newDesc);
     }
 
     
