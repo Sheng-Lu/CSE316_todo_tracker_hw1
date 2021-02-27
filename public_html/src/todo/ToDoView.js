@@ -150,9 +150,6 @@ export default class ToDoView {
             }
             statusInput.onblur = function(event){
                 controller.handleStatus(listItem, statusInput.value);
-                // listItem.setStatus(statusInput.value);
-                // listStatus.innerHTML= listItem.status;
-                // statusInput.replaceWith(listStatus);
             }
 
             let listControl = document.createElement('div');
@@ -164,8 +161,9 @@ export default class ToDoView {
             listControl.appendChild(arrowUp);
 
             arrowUp.onclick = function(event){
-                list.moveUp(listItem);
-                this.viewList(list)
+                controller.handleUpArrow(list, listItem);
+                // list.moveUp(listItem);
+                // this.viewList(list)
             }
 
             let arrowDown = document.createElement('div');

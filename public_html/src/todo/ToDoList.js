@@ -81,6 +81,9 @@ export default class ToDoList {
 
     moveUp(item){
         let index = this.getIndexOfItem(item);
+        // if(index == 0){
+        //     return;
+        // }
         let temp = this.items[index-1];
         this.items[index-1] = item;
         this.items[index] = temp;
@@ -88,6 +91,9 @@ export default class ToDoList {
 
     moveDown(item){
         let index = this.getIndexOfItem(item);
+        // if(index+1 == this.items.length){
+        //     return;
+        // }
         let temp = this.items[index+1];
         this.items[index+1] = item;
         this.items[index] = temp;

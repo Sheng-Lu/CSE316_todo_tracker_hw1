@@ -68,5 +68,8 @@ export default class ToDoController {
         this.model.addStatusTransaction(item, newStatus);
     }
 
+    handleUpArrow(list, item){
+        this.model.addUpArrowTransaction(list, item);
+    }
     
 }
