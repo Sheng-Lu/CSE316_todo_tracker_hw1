@@ -119,9 +119,6 @@ export default class ToDoView {
             }
             dateInput.onblur = function(event){
                 controller.handleDueDate(listItem, dateInput.value);
-                // listItem.setDueDate(dateInput.value);
-                // listDate.innerHTML= listItem.dueDate;
-                // dateInput.replaceWith(listDate);
             }
 
             let listStatus = document.createElement('div');     //list status
@@ -147,16 +144,15 @@ export default class ToDoView {
 
             statusInput.value = listItem.status;
 
-            // todoListItem.appendChild(statusInput);
-
             listStatus.onclick = function(event){
                 listStatus.replaceWith(statusInput);
                 statusInput.focus();
             }
             statusInput.onblur = function(event){
-                listItem.setStatus(statusInput.value);
-                listStatus.innerHTML= listItem.status;
-                statusInput.replaceWith(listStatus);
+                controller.handleStatus(listItem, statusInput.value);
+                // listItem.setStatus(statusInput.value);
+                // listStatus.innerHTML= listItem.status;
+                // statusInput.replaceWith(listStatus);
             }
 
             let listControl = document.createElement('div');

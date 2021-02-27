@@ -64,5 +64,9 @@ export default class ToDoController {
         this.model.addDateTransaction(item, newDate);
     }
 
+    handleStatus(item, newStatus){
+        this.model.addStatusTransaction(item, newStatus);
+    }
+
     
 }
