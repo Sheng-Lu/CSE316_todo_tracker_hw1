@@ -25,7 +25,8 @@ export default class ToDoView {
         let thisController = this.controller;
         listElement.onmousedown = function() {
             thisController.handleLoadList(newList.id);
-            
+            // listElement.style.backgroundColor = '#yellow';
+            console.log(listElement);
         }
     }
 
@@ -97,8 +98,15 @@ export default class ToDoView {
             let todoListItem = document.createElement('div');
             todoListItem.id = 'todo-list-item-' + listItem.id;
             // todoListItem.setAttribute("id", "todo-list-item-"+listItem.id);
-            todoListItem.className = 'list-item-card';
+            todoListItem.className = 'list-item-card-item';
             itemsListDiv.appendChild(todoListItem);
+
+            todoListItem.onmouseover = function(){
+                todoListItem.style.backgroundColor = '#353a44';
+            }
+            todoListItem.onmouseout = function(){
+                todoListItem.style.backgroundColor = '#40454e';
+            }
 
             let listDesc = document.createElement('div');   // task description
             listDesc.className = 'task-col';
@@ -110,11 +118,11 @@ export default class ToDoView {
             descInput.type = 'text';
             descInput.value = listItem.description;
             
-            listDesc.onclick = function(event){
+            listDesc.onclick = function(){
                 listDesc.replaceWith(descInput);
                 descInput.focus();
             }
-            descInput.onblur = function(event) {
+            descInput.onblur = function() {
                 controller.handleDescription(listItem, descInput.value);
             }
 
@@ -128,11 +136,11 @@ export default class ToDoView {
             dateInput.type = 'date';
             dateInput.value = listItem.dueDate;
 
-            listDate.onclick = function(event){
+            listDate.onclick = function(){
                 listDate.replaceWith(dateInput);
                 dateInput.focus();
             }
-            dateInput.onblur = function(event){
+            dateInput.onblur = function(){
                 controller.handleDueDate(listItem, dateInput.value);
             }
 
@@ -165,11 +173,11 @@ export default class ToDoView {
 
             statusInput.value = listItem.status;
 
-            listStatus.onclick = function(event){
+            listStatus.onclick = function(){
                 listStatus.replaceWith(statusInput);
                 statusInput.focus();
             }
-            statusInput.onblur = function(event){
+            statusInput.onblur = function(){
                 controller.handleStatus(listItem, statusInput.value);
             }
 
@@ -181,7 +189,7 @@ export default class ToDoView {
             arrowUp.innerHTML= 'keyboard_arrow_up';
             listControl.appendChild(arrowUp);
 
-            arrowUp.onclick = function(event){
+            arrowUp.onclick = function(){
                 controller.handleUpArrow(list, listItem);
             }
 
@@ -195,7 +203,7 @@ export default class ToDoView {
             arrowDown.innerHTML='keyboard_arrow_down';
             listControl.appendChild(arrowDown);
 
-            arrowDown.onclick = function(event){
+            arrowDown.onclick = function(){
                 controller.handleDownArrow(list, listItem);
             }
 
@@ -209,7 +217,7 @@ export default class ToDoView {
             close.innerHTML='close';
             listControl.appendChild(close);
 
-            close.onclick = function(event){
+            close.onclick = function(){
                 controller.handleClose(list, listItem);
                 // list.removeItem(listItem);
                 // itemsListDiv.removeChild(todoListItem);

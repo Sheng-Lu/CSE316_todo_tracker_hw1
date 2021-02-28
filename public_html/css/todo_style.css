@@ -62,17 +62,19 @@
     border-bottom: solid;
 }
 
+.list-item-card-item {
+    border-bottom: solid;
+}
+
 .todo_button {
     cursor:pointer;
     background-color: var(--swatch-complement);
+    height: 40px;
+    text-align: center;
 }
 
 .todo_button:hover {
     background-color: var(--swatch-contrast);
-}
-
-.todo_button_hi {
-    background-color: var(--swatch-accent);
 }
 
 .popup_button {
@@ -156,4 +158,8 @@
 #redo-button {
     pointer-events: none;
     color: grey;
+}
+
+#add-list-button {
+    color: var(--swatch-accent);
 }

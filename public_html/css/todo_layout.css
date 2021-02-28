@@ -70,6 +70,12 @@ b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption 
     flex-direction: row;
 }
 
+.list-item-card-item {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
 .task-col {
     width:25%;
     background-color: transparent;

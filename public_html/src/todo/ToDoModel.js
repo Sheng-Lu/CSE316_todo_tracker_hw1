@@ -264,11 +264,14 @@ export default class ToDoModel {
         document.getElementById("add-item-button").style.color = 'grey';
         document.getElementById("close-list-button").style.color = 'grey';
 
-        document.getElementById("add-list-button").style.color = 'white';
+        document.getElementById("add-list-button").style.color = '#ffc819';
         document.getElementById("add-list-button").style.pointerEvents = 'auto';
 
         document.getElementById("undo-button").style.pointerEvents = 'none';
         document.getElementById("undo-button").style.color = 'grey';
+
+        document.getElementById("redo-button").style.pointerEvents = 'none';
+        document.getElementById("redo-button").style.color = 'grey';
     }
 
     enableUndo(){
