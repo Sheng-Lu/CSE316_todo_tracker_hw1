@@ -58,8 +58,20 @@ export default class ToDoView {
 
         let itemsListDiv = document.getElementById("todo-list-items-div");
 
+        document.getElementById("delete-list-button").style.pointerEvents = 'auto';
+        document.getElementById("add-item-button").style.pointerEvents = 'auto';
+        document.getElementById("close-list-button").style.pointerEvents = 'auto';
+
+        document.getElementById("delete-list-button").style.color = 'white';
+        document.getElementById("add-item-button").style.color = 'white';
+        document.getElementById("close-list-button").style.color = 'white';
+
         // GET RID OF ALL THE ITEMS
         this.clearItemsList();
+
+        if(list == null){
+            return
+        }
 
         for (let i = 0; i < list.items.length; i++) {
             // NOW BUILD ALL THE LIST ITEMS

@@ -48,6 +48,9 @@ export default class ToDoController {
             document.getElementById("popup").classList.remove("active");
             document.getElementById("overlay").classList.remove("active");
         }
+        document.getElementById("close-list-button").onmousedown = function(){
+            appModel.closeList();
+        }
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD

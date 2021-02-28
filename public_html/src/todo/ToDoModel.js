@@ -231,4 +231,16 @@ export default class ToDoModel {
         let transaction = new Close_Transaction(this, list, item);
         this.tps.addTransaction(transaction);
     }
+
+    closeList(){
+        this.currentList = null;
+        this.tps.clearAllTransactions();
+        this.view.viewList(null);
+        document.getElementById("delete-list-button").style.pointerEvents = 'none';
+        document.getElementById("add-item-button").style.pointerEvents = 'none';
+        document.getElementById("close-list-button").style.pointerEvents = 'none';
+        document.getElementById("delete-list-button").style.color = 'grey';
+        document.getElementById("add-item-button").style.color = 'grey';
+        document.getElementById("close-list-button").style.color = 'grey';
+    }
 }

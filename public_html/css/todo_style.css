@@ -132,3 +132,18 @@
     opacity: 1;
     pointer-events: all;
 }
+
+#add-item-button {
+    pointer-events: none;
+    color: gray;
+}
+
+#delete-list-button {
+    pointer-events: none;
+    color: grey;
+}
+
+#close-list-button {
+    pointer-events: none;
+    color: grey;
+}
