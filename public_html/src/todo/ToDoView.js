@@ -162,17 +162,15 @@ export default class ToDoView {
 
             arrowUp.onclick = function(event){
                 controller.handleUpArrow(list, listItem);
-                // list.moveUp(listItem);
-                // this.viewList(list)
             }
 
-            let arrowDown = document.createElement('div');
+            let arrowDown = document.createElement('div');      //down arrow
             arrowDown.className = 'list-item-control material-icons';
             arrowDown.innerHTML='keyboard_arrow_down';
             listControl.appendChild(arrowDown);
 
             arrowDown.onclick = function(event){
-                list.moveDown(listItem);
+                controller.handleDownArrow(list, listItem);
             }
 
             let close = document.createElement('div');          //x button

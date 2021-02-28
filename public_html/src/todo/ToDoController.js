@@ -71,5 +71,9 @@ export default class ToDoController {
     handleUpArrow(list, item){
         this.model.addUpArrowTransaction(list, item);
     }
+
+    handleDownArrow(list, item){
+        this.model.addDownArrowTransaction(list, item);
+    }
     
 }
