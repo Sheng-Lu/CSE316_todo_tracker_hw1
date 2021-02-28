@@ -147,3 +147,13 @@
     pointer-events: none;
     color: grey;
 }
+
+#undo-button {
+    pointer-events: none;
+    color: grey;
+}
+
+#redo-button {
+    pointer-events: none;
+    color: grey;
+}

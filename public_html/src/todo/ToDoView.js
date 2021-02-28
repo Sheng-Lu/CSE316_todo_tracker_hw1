@@ -66,6 +66,9 @@ export default class ToDoView {
         document.getElementById("add-item-button").style.color = 'white';
         document.getElementById("close-list-button").style.color = 'white';
 
+        document.getElementById("add-list-button").style.color = 'grey';
+        document.getElementById("add-list-button").style.pointerEvents = 'none';
+
         // GET RID OF ALL THE ITEMS
         this.clearItemsList();
 
@@ -182,6 +185,11 @@ export default class ToDoView {
                 controller.handleUpArrow(list, listItem);
             }
 
+            if(i == 0){
+                arrowUp.style.color = 'grey';
+                arrowUp.style.pointerEvents = 'none';
+            }
+
             let arrowDown = document.createElement('div');      //down arrow
             arrowDown.className = 'list-item-control material-icons';
             arrowDown.innerHTML='keyboard_arrow_down';
@@ -189,6 +197,11 @@ export default class ToDoView {
 
             arrowDown.onclick = function(event){
                 controller.handleDownArrow(list, listItem);
+            }
+
+            if(i == list.items.length-1){
+                arrowDown.style.color = 'grey';
+                arrowDown.style.pointerEvents = 'none';
             }
 
             let close = document.createElement('div');          //x button
