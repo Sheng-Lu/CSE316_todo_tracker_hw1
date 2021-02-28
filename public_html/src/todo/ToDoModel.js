@@ -214,13 +214,17 @@ export default class ToDoModel {
     }
     
     addUpArrowTransaction(list, item){
-        let transaction = new UpArrow_Transaction(this, list, item);
-        this.tps.addTransaction(transaction);
+        if(list.getIndexOfItem(item)>0){
+            let transaction = new UpArrow_Transaction(this, list, item);
+            this.tps.addTransaction(transaction);
+        }
     }
 
     addDownArrowTransaction(list, item){
-        let transaction = new DownArrow_Transaction(this, list, item);
-        this.tps.addTransaction(transaction);
+        if(list.getIndexOfItem(item)<list.items.length-1){
+            let transaction = new DownArrow_Transaction(this, list, item);
+            this.tps.addTransaction(transaction);
+        }
     }
 
     addCloseTransaction(list, item){

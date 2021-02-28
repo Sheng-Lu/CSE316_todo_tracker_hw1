@@ -35,7 +35,13 @@ b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption 
 
 #left-sidebar-header {
     display: grid;
+    height: 5%;
     grid-template-columns: 60% 40%;
+}
+
+#todo-list-header-card {
+    display: flex;
+    border-bottom: dotted;
 }
 
 #left-sidebar-header-text {
@@ -100,5 +106,10 @@ b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption 
 
 .list-item-control {
     cursor:pointer;
+    width: 20%;
+}
+
+.list-item-control-disabled {
+    pointer-events: none;
     width: 20%;
 }

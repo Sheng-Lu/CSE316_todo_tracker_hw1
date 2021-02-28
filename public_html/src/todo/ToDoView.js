@@ -124,6 +124,12 @@ export default class ToDoView {
             let listStatus = document.createElement('div');     //list status
             listStatus.className = 'status-col';
             listStatus.innerHTML= listItem.status;
+            if(listItem.status == "incomplete"){
+                listStatus.style.color = "#F5BC75";
+            }
+            else if(listItem.status == "complete"){
+                listStatus.style.color = "#8ED4F8";
+            }
             todoListItem.appendChild(listStatus);
 
             let statusInput = document.createElement('select');
