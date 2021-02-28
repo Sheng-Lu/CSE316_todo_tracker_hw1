@@ -98,4 +98,8 @@ export default class ToDoList {
         this.items[index+1] = item;
         this.items[index] = temp;
     }
+
+    insertItemAtIndex(item, index){
+        this.items.splice(index, 0, item);
+    }
 }

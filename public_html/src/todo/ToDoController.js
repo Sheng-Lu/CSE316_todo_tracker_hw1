@@ -75,5 +75,9 @@ export default class ToDoController {
     handleDownArrow(list, item){
         this.model.addDownArrowTransaction(list, item);
     }
+
+    handleClose(list, item){
+        this.model.addCloseTransaction(list, item);
+    }
     
 }

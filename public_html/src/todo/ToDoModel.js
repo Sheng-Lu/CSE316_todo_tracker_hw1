@@ -9,6 +9,7 @@ import Date_Transaction from './transactions/Date_Transaction.js'
 import Status_Transaction from './transactions/Status_Transaction.js'
 import UpArrow_Transaction from './transactions/UpArrow_Transaction.js'
 import DownArrow_Transaction from './transactions/DownArrow_Transaction.js'
+import Close_Transaction from './transactions/Close_Transaction.js'
 
 /**
  * ToDoModel
@@ -219,6 +220,11 @@ export default class ToDoModel {
 
     addDownArrowTransaction(list, item){
         let transaction = new DownArrow_Transaction(this, list, item);
+        this.tps.addTransaction(transaction);
+    }
+
+    addCloseTransaction(list, item){
+        let transaction = new Close_Transaction(this, list, item);
         this.tps.addTransaction(transaction);
     }
 }

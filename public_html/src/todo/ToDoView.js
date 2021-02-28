@@ -179,8 +179,9 @@ export default class ToDoView {
             listControl.appendChild(close);
 
             close.onclick = function(event){
-                list.removeItem(listItem);
-                itemsListDiv.removeChild(todoListItem);
+                controller.handleClose(list, listItem);
+                // list.removeItem(listItem);
+                // itemsListDiv.removeChild(todoListItem);
             }
 
             let listItemControl = document.createElement('div');
