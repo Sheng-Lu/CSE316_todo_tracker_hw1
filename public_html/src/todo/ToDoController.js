@@ -83,4 +83,8 @@ export default class ToDoController {
         this.model.addCloseTransaction(list, item);
     }
     
+    getCurrentList(){
+        return this.model.getCurrentList();
+    }
+    
 }

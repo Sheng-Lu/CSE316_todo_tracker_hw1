@@ -23,11 +23,61 @@ export default class ToDoView {
 
         // SETUP THE HANDLER FOR WHEN SOMEONE MOUSE CLICKS ON OUR LIST
         let thisController = this.controller;
-        listElement.onmousedown = function() {
-            thisController.handleLoadList(newList.id);
-            // listElement.style.backgroundColor = '#yellow';
-            console.log(listElement);
+        listElement.onclick = function(event) {
+            let temp = document.getElementById(newListId);
+            // thisController.changeListName(newList, temp, event);
+            let currList = thisController.getCurrentList();
+            let listTemp = document.createElement("input");
+            listTemp.className = "todo_button_input";
+            listTemp.type = "text";
+            listTemp.style.color = '#e9edf0';
+            listTemp.style.textAlign = 'center';
+            listTemp.style.height = '40px';
+            listTemp.style.backgroundColor = 'rgb(255,200,25)';
+
+            
+            if(currList == newList){
+                // console.log(true);
+                listTemp.value = newList.getName();
+                temp.replaceWith(listTemp);
+                listTemp.focus();
+
+                listTemp.onblur = function(event) {
+                    newList.setName(listTemp.value);
+                    listTemp.replaceWith(temp);
+                    temp.innerHTML = listTemp.value;
+                }
+            }
+            else{
+                thisController.handleLoadList(newList.id);
+                let temp1 = document.getElementById(newListId);
+                temp1.style.backgroundColor = 'rgb(255,200,25)';
+            }
+            
+
+            // let temp1 = document.getElementById(newListId);
+            // temp1.style.backgroundColor = 'rgb(255,200,25)';
+            
         }
+
+        // let listTemp = document.createElement("input");
+        //     listTemp.className = "todo_button_input";
+        //     listTemp.type = "text";
+
+        // let temp = document.getElementById(newListId);
+        
+        
+        // temp.ondblclick = function(event) {
+        //     listTemp.value = newList.getName();
+        //     temp.replaceWith(listTemp);
+        //     listTemp.focus();
+        // }
+
+        // listTemp.onblur = function(event) {
+        //     newList.setName(listTemp.value);
+        //     listTemp.replaceWith(temp);
+        //     temp.innerHTML = listTemp.value;
+        // }
     }
 
     // REMOVES ALL THE LISTS FROM THE LEFT SIDEBAR

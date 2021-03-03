@@ -77,6 +77,12 @@
     background-color: var(--swatch-contrast);
 }
 
+.todo_button_input{
+    background-color: var(--swatch-complement);
+    height: 40px;
+    text-align: center;
+}
+
 .popup_button {
     cursor:pointer;
     background-color: var(--swatch-primary);
@@ -91,7 +97,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    /* transition: 100ms ease-in-out; */
     border: 1px solid black;
     width: 350px;
     max-width: 50%;
@@ -121,7 +126,6 @@
 #overlay {
     position: fixed;
     opacity: 0;
-    /* transition: 100ms ease-in-out; */
     top: 0;
     left: 0;
     right: 0;

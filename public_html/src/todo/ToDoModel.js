@@ -34,6 +34,9 @@ export default class ToDoModel {
         this.nextListItemId = 0;
     }
 
+    getCurrentList(){
+        return this.currentList;
+    }
     /**
      * addItemToCurrentList
      * 
@@ -81,6 +84,7 @@ export default class ToDoModel {
         let transaction = new AddNewItem_Transaction(this);
         this.tps.addTransaction(transaction);
         this.enableUndo();
+        this.disableRedo();
     }
 
     /**
@@ -156,8 +160,11 @@ export default class ToDoModel {
             this.tps.doTransaction();
 
             if (!(this.tps.hasTransactionToRedo())){
-                document.getElementById("redo-button").style.pointerEvents = 'none';
-                document.getElementById("redo-button").style.color = 'grey';
+                this.disableRedo();
+            }
+
+            if(this.tps.hasTransactionToUndo()){
+                this.enableUndo();
             }
         }
     }   
@@ -213,6 +220,7 @@ export default class ToDoModel {
         let transaction = new Description_Transation(this, item, item.description, newDesc);
         this.tps.addTransaction(transaction);
         this.enableUndo();
+        this.disableRedo();
     }
 
     refreshView(){
@@ -223,12 +231,14 @@ export default class ToDoModel {
         let transaction = new Date_Transaction(this, item, item.dueDate, newDate);
         this.tps.addTransaction(transaction);
         this.enableUndo();
+        this.disableRedo();
     }
 
     addStatusTransaction(item, newStatus){
         let transaction = new Status_Transaction(this, item, item.getStatus(), newStatus);
         this.tps.addTransaction(transaction);
         this.enableUndo();
+        this.disableRedo();
     }
     
     addUpArrowTransaction(list, item){
@@ -236,6 +246,7 @@ export default class ToDoModel {
             let transaction = new UpArrow_Transaction(this, list, item);
             this.tps.addTransaction(transaction);
             this.enableUndo();
+            this.disableRedo();
         }
     }
 
@@ -244,6 +255,7 @@ export default class ToDoModel {
             let transaction = new DownArrow_Transaction(this, list, item);
             this.tps.addTransaction(transaction);
             this.enableUndo();
+            this.disableRedo();
         }
     }
 
@@ -251,9 +263,11 @@ export default class ToDoModel {
         let transaction = new Close_Transaction(this, list, item);
         this.tps.addTransaction(transaction);
         this.enableUndo();
+        this.disableRedo();
     }
 
     closeList(){
+        document.getElementById("todo-list-" + this.currentList.getId()).style.backgroundColor = "#353a44";
         this.currentList = null;
         this.tps.clearAllTransactions();
         this.view.viewList(null);
@@ -277,5 +291,10 @@ export default class ToDoModel {
     enableUndo(){
         document.getElementById("undo-button").style.pointerEvents = 'auto';
         document.getElementById("undo-button").style.color = 'white';
+    }
+
+    disableRedo(){
+        document.getElementById("redo-button").style.pointerEvents = 'none';
+        document.getElementById("redo-button").style.color = 'grey';
     }
 }
