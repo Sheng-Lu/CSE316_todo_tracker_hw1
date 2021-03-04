@@ -56,6 +56,8 @@ export default class ToDoController {
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD
     handleLoadList(listId) {
         // UNLOAD THE CURRENT LIST AND INSTEAD LOAD THE CURRENT LIST
+        document.getElementById("undo-button").style.pointerEvents = 'none';
+        document.getElementById("undo-button").style.color = 'grey';
         this.model.loadList(listId);
     }
 

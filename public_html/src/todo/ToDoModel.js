@@ -45,7 +45,7 @@ export default class ToDoModel {
      * @param {*} itemToAdd A instantiated item to add to the list.
      */
     addItemToCurrentList(itemToAdd) {
-        this.currentList.push(itemToAdd);
+        this.currentList.addItem(itemToAdd);
     }
 
     /**
@@ -212,6 +212,7 @@ export default class ToDoModel {
                 document.getElementById("undo-button").style.pointerEvents = 'none';
                 document.getElementById("undo-button").style.color = 'grey';
             }
+
         }
         
     } 
