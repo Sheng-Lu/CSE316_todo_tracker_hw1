@@ -30,15 +30,22 @@ body{
     margin-left: 10px;
 }
 
+#left-sidebar::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
 #left-sidebar-header {
     display: flex;
     height: 5%;
     grid-template-columns: 60% 40%;
+    background-color: #353a44;
 }
 
 #todo-list-header-card {
     display: flex;
     border-bottom: dotted;
+    background-color: #353a44;
 }
 
 #left-sidebar-header-text {
@@ -113,6 +120,10 @@ body{
 
 .list-item-control {
     cursor:pointer;
+    width: 20%;
+}
+
+.list-item-fill {
     width: 20%;
 }
 
